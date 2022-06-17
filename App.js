@@ -1,20 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
-import { AsyncStorage } from 'react-native';
-//import { AppLoading } from 'expo';
+// import { AppLoading } from 'expo';
 import { AntDesign } from '@expo/vector-icons'; 
 import { useFonts, Lato_400Regular } from '@expo-google-fonts/lato';
-import { StyleSheet, Text, View, ImageBackground, TouchableOpacity,TouchableHighlight ,Modal ,ScrollView, TextInput } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, AsyncStorage, TouchableOpacity,TouchableHighlight ,Modal ,ScrollView, TextInput } from 'react-native';
 
-export default function App() 
-{
+export default function App() {  
   console.disableYellowBox = true;
 
   const image = require('./resources/bg.jpg');
   const [tarefas, setarTarefas] = useState([]);
   const [modal,setModal] = useState(false);
   const [tarefaAtual,setTarefaAtual] = useState('');
- 
+  
   let [fontsLoaded] = useFonts(
   {
     Lato_400Regular,
@@ -41,7 +39,7 @@ export default function App()
 
   if (!fontsLoaded) 
   {
-    return <AppLoading />;
+    // return <AppLoading />;
   }
 
   function deletarTarefa(id)
